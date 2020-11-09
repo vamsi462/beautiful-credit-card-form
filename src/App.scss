@@ -21,6 +21,8 @@ body {
     @media screen and(max-width:576px) {
         margin: 0 auto
     }
+
+  
   &__inner{
     background-color: #fff;
     box-shadow: 0 30px 60px 0 rgba(90, 116, 148, 0.4);
@@ -28,4 +30,41 @@ body {
     padding:35px;
     padding-left: 180px;
   }
+  @media screen and (max-width:480px){
+     padding: 25px;
+     padding-top: 165px;
+  }
+  @media screen and (max-width: 360px) {
+    padding: 15px;
+    padding-top: 165px;
+  }
+
+  &__row {
+    display: flex;
+    align-items: flex-start;
+
+    @media screen and (max-width: 480px) {
+      flex-wrap: wrap;
+    }
+  }
+   &__col {
+     flex: auto;
+     margin-right: 35px;
+
+   }
+
+    &__group {
+       display: flex;
+       align-items: flex-start;
+       flex-wrap: wrap;
+
+       .card-input__input {
+         flex: 1;
+         margin-right: 15px;
+
+         &:last-child {
+           margin-right: 0;
+         }
+       }
+     }
 }
