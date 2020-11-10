@@ -4,10 +4,11 @@ import Card from './components/card'
 
 const MainScreen = () => {
     return (
-        <div>
-           <CForm/>
-        </div>
-    )
+      <div>
+        <Card />
+        <CForm />
+      </div>
+    );
 }
 
 export default MainScreen
