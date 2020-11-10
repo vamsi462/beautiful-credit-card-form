@@ -9,7 +9,7 @@ import './styles.scss'
 const Card= () => {
     return (
       <div className='card-item'>
-    {/**************************** front **********************************/}
+        {/**************************** front **********************************/}
         <div className='card-item__side -front'>
           <div className='card-item__focus' />
           <div className='card-item__cover'>
@@ -17,20 +17,25 @@ const Card= () => {
           </div>
           <div>
             <div className='card-item__wrapper'>
-              <img alt='chip' src={chip} className='card-item__chip' />
-            </div>
-            <div className='card-item__type'>
-              <img alt='type' src={type1} className='card-item__typeImg' />
-            </div>
-          </div>
+              <div className='card-item__top'>
+                <img alt='chip' src={chip} className='card-item__chip' />
+              </div>
+              <div className='card-item__type'>
+                <img alt='type' src={type1} className='card-item__typeImg' />
+              </div>
 
-          <label>number</label>
-          <div className='card-item__content'>
-            <label>holder</label>
-          </div>
-          <div className='card-item__date'>
-            <label>expires</label>
-            <label>month</label>/<label>year</label>
+              <label>number</label>
+              <div className='card-item__content'>
+                <label>holder</label>
+              </div>
+              <div className='card-item__date'>
+                <label>expires</label>
+                <label>month</label>
+                /
+                <label>year</label>
+                
+              </div>
+            </div>
           </div>
         </div>
         {/********************* back side ***************************/}
@@ -39,15 +44,13 @@ const Card= () => {
             <img alt='bg' src={bgImg} />
           </div>
           <div className='card-item__band' />
-                <div className="card-item__cvv">
-                    <div className="card-item__cvvTitle">CVV</div>
-                    <div className="card-item__cvvBand">
-                        zoom effect
-                    </div>
-                    <div className="card-item__type">
-                        <img alt="type2" src={type2}/>
-                    </div>
-                </div>
+          <div className='card-item__cvv'>
+            <div className='card-item__cvvTitle'>CVV</div>
+            <div className='card-item__cvvBand'>zoom effect</div>
+            <div className='card-item__type'>
+              <img alt='type2' src={type2} />
+            </div>
+          </div>
         </div>
       </div>
     );   
