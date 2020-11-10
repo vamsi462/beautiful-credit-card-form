@@ -1,9 +1,16 @@
 /** @format */
 
-import React from "react";
-import Card from "../card";
+import React, { useState } from "react";
 
 function CForm() {
+
+  const [cardNumber,setCardNumber]= useState('')
+
+  const handleFormChange =(e)=>{
+    const {name,value} = e.target
+    
+        
+  }
   return (
     <div className='card-form'>
       <div className='card-list'></div>
@@ -15,7 +22,7 @@ function CForm() {
             autoComplete='off'
             maxLength='19'
             className='card-input__input'
-            value=''
+            value={cardNumber}
           />
         </div>
         <div className='card-input'>
@@ -26,6 +33,8 @@ function CForm() {
             maxLength='19'
             className='card-input__input'
             value=''
+            name='cardHolder'
+            onChange={handleFormChange}
           />
         </div>
         <div className='card-form__row'>
