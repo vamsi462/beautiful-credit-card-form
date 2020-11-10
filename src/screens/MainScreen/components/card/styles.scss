@@ -1,0 +1,16 @@
+.card-item{
+    max-width: 450px;
+    height: 270px;
+    margin-left: auto;
+    margin-right: auto;
+    
+
+          &__side {
+              border-radius: 15px;
+              overflow: hidden;
+          }
+          &__bg{
+              max-width:100%
+          }
+}
+
