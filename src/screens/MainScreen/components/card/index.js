@@ -9,6 +9,7 @@ import './styles.scss'
 const Card= () => {
     return (
       <div className='card-item'>
+    {/**************************** front **********************************/}
         <div className='card-item__side -front'>
           <div className='card-item__focus' />
           <div className='card-item__cover'>
