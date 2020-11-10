@@ -39,7 +39,7 @@ const Card= () => {
           </div>
         </div>
         {/********************* back side ***************************/}
-        <div className='card-item__side -back'>
+         <div className='card-item__side -back'>
           <div className='card-item__cover'>
             <img alt='bg' src={bgImg} />
           </div>

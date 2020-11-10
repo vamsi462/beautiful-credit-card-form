@@ -50,14 +50,54 @@
         width: 100%;
         border-radius: 15px;
         overflow: hidden;
-         &:after {
-             content: '';
-             position: absolute;
-             left: 0;
-             top: 0;
-             width: 100%;
-             height: 100%;
-             background: rgba(6, 2, 29, 0.45);
-            }
+
+        &:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(6, 2, 29, 0.45);
+        }
+    }
+
+    &__top {
+         display: flex;
+         align-items: flex-start;
+         justify-content: space-between;
+         margin-bottom: 40px;
+         padding: 0 10px;
+    }
+
+    &__chip {
+        width: 60px;
+
+    }
+
+    &__type {
+        height: 45px;
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        max-width: 100px;
+        margin-left: auto;
+        width: 100%;
+    }
+       &__typeImg { 
+           max-width: 100%;
+           object-fit: contain;
+           max-height: 100%;
+           object-position: top right;
+       }
+
+    &__wrapper {
+        font-family: 'Source Code Pro', monospace;
+        padding: 25px 15px;
+        position: relative;
+        z-index: 4;
+        height: 100%;
+        text-shadow: 7px 6px 10px rgba(14, 42, 90, 0.8);
+        user-select: none;
     }
 }
