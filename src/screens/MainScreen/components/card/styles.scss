@@ -13,12 +13,16 @@
     }
 
     &__side {
-        border-radius: 15px;
+        border-radius:15px;
         overflow: hidden;
         box-shadow: 0 5px 16px 0 rgba(14, 42, 84, 0.55);
         transform: perspective(2000px)rotateY(0deg) rotateX(0deg) rotate(0deg);
-        background-color: rebeccapurple;
-
+        transform-style: preserve-3d;
+        transition: all 0.8s cubic-bezier(0.42, 0, 0, 1.05);
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        height: 100%;
+        
         &.-back {
             position: absolute;
             top: 0;
