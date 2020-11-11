@@ -16,17 +16,21 @@ function CForm({
   cardMonth,
   cardYear,
   onUpdateState,
-  cardNumbeRef,
+  cardNumberRef,
   cardHolderRef,
   cardDateRef,
   onCardInputFocus,
+  cardCvv,
   children,
 }) {
   const [cardNumber, setCardNumber] = useState("");
 
   const handleFormChange = e => {
     const {name, value} = e.target;
+    onUpdateState(name, value);
   };
+
+     
   return (
     <div className='card-form'>
       <div className='card-list'></div>
@@ -38,7 +42,11 @@ function CForm({
             autoComplete='off'
             maxLength='19'
             className='card-input__input'
-            value={cardNumber}
+            name="cardNumber" 
+            ref={cardNumberRef}
+            // value={cardNumber}
+             onChange={handleFormChange}
+            onFocus={(e) => onCardInputFocus(e, 'cardNumber')}
           />
         </div>
         <div className='card-input'>
@@ -101,6 +109,9 @@ function CForm({
                 className='card-input__input'
                 maxLength='4'
                 autoComplete='off'
+                name='cardCvv'
+                onChange={handleFormChange}
+                ref={cardCvv}
               />
             </div>
           </div>

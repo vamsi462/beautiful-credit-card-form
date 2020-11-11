@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import {TransitionGroup, SwitchTransition, CSSTransition } from 'react-transition-group'
-import bgImg from '../../images/card.jpeg' 
+import bgImg from '../../images/blackbg.jpg' 
 import chip from '../../images/chip.png'
 import type1 from '../../images/mastercard.png'
 import type2 from '../../images/visa.png'
@@ -29,14 +29,25 @@ const Card = ({
     cardHolderRef
   }) => {
     
- 
+ const [style, setStyle] = useState(null);
+
   
-  
-  
-  
+
+    const outlineElementStyle = (element) => {
+      return element ?
+        {
+          width: `${element.offsetWidth}px`,
+          height: `${element.offsetHeight}px`,
+          transform: `translateX(${element.offsetLeft}px) translateY(${element.offsetTop}px)`
+        } :
+        null;
+    };
+
+
   useEffect(()=>{
     if(currentFocusedElm){
-      let s =  currentFocusedElm.current
+        const style =  outlineElementStyle(currentFocusedElm.current)
+        setStyle(style)
     }
   },[currentFocusedElm])
   
@@ -51,10 +62,13 @@ const Card = ({
   
   
   return (
-      <div className='card-item'>
+      <div className={'card-item'+(isCardFlipped ? '-active':'')}>
+
         {/**************************** front **********************************/}
         <div className='card-item__side -front'>
-          <div className='card-item__focus' />
+         <div className={`card-item__focus ${currentFocusedElm ? `-active` : ``}`}
+                    style={style}
+          />
           <div className='card-item__cover'>
             <img alt='bg' src={bgImg} className='card-item__bg' />
           </div>
@@ -70,8 +84,15 @@ const Card = ({
               <label>number</label>
               <div className='card-item__content'>
                 <label
+                 className = "card-item__info"
                  onClick={() => onCardElementClick('cardHolder')}
-                            ref={cardHolderRef}>holder</label>
+                            ref={cardHolderRef}>
+
+                   <div className="card-item__holder">Card Holder</div>
+                   <div className="card-item__name">
+                 
+                   </div>
+                  </label>
               </div>
               <div className='card-item__date'>
                 <label>expires</label>

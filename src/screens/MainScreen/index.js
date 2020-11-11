@@ -6,7 +6,7 @@ import Card from "./components/card";
 
 const initialState = {
   cardNumber: "#### #### #### ####",
-  cardName: "FULL NAME",
+  cardHolder: 'FULL NAME',
   cardMonth: "",
   cardYear: "",
   cardCvv: "",
@@ -32,6 +32,8 @@ const MainScreen = () => {
     cardCvv: useRef(),
   };
 
+
+  //focuses form filed based on the key 
   let focusFormFieldByKey = key => {
     formFieldsRefObj[key].current.focus();
   };
@@ -49,6 +51,19 @@ const MainScreen = () => {
 
   return (
     <div className='wrapper'>
+      <Card
+        cardNumber={state.cardNumber}
+        cardHolder={state.cardHolder}
+        cardMonth={state.cardMonth}
+        cardYear={state.cardYear}
+        cardCvv={state.cardCvv}
+        isCardFlipped={state.isCardFlipped}
+        cardNumberRef={cardElementsRef.cardNumber}
+        cardHolderRef={cardElementsRef.cardHolder}
+        cardDateRef={cardElementsRef.cardDate}
+        currentFocusedElm={currentFocusedElm}
+        onCardElementClick={focusFormFieldByKey}
+      />
       <CForm
         cardMonth={state.cardMonth}
         cardYear={state.cardYear}
@@ -57,9 +72,7 @@ const MainScreen = () => {
         cardHolderRef={formFieldsRefObj.cardHolder}
         cardDateRef={formFieldsRefObj.cardDate}
         onCardInputFocus={onCardFormInputFocus}
-        >
-        <Card />
-      </CForm>
+      ></CForm>
     </div>
   );
 };
