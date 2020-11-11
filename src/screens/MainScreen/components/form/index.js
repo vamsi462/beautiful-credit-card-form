@@ -1,6 +1,14 @@
 /** @format */
 
-import React, { useState } from "react";
+import React, {useState} from "react";
+
+
+
+const monthsArr = Array.from({length:12},(x,i)=>{
+    const month = i+1
+    return console.log(month<=9 ? '0'+month :month)
+})
+
 
 function CForm({
   cardMonth,
@@ -10,15 +18,13 @@ function CForm({
   cardHolderRef,
   cardDateRef,
   onCardInputFocus,
-  children
+  children,
 }) {
+  const [cardNumber, setCardNumber] = useState("");
 
-  const [cardNumber,setCardNumber]= useState('')
-
-  const handleFormChange =(e)=>{
-    const {name,value} = e.target
-    
-  }
+  const handleFormChange = e => {
+    const {name, value} = e.target;
+  };
   return (
     <div className='card-form'>
       <div className='card-list'></div>
@@ -42,15 +48,22 @@ function CForm({
             ref={cardHolderRef}
             name='cardHolder'
             onChange={handleFormChange}
-            onFocus={(e) => onCardInputFocus(e, 'cardHolder')}
+            onFocus={e => onCardInputFocus(e, "cardHolder")}
           />
         </div>
         <div className='card-form__row'>
           <div className='card-form__col'>
             <div className='card-form__group'>
-              <label className="card-input__label">Expiration Date</label>
-              <select>
-                <option>Month</option>
+              <label className='card-input__label'>Expiration Date</label>
+              <select
+                value={cardMonth}
+                ref={cardDateRef}
+                name='cardMonth'
+                onChange={handleFormChange}
+                onFocus={e => onCardInputFocus(e, "cardDate")}
+              >
+                <option value="" disabled>Month</option>
+              
               </select>
               <select>
                 <option>Year</option>
