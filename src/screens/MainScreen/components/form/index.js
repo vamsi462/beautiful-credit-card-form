@@ -9,6 +9,8 @@ const monthsArr = Array.from({length:12},(x,i)=>{
     return month<=9 ? '0'+month :month
 })
 
+const currentYear = new Date().getFullYear()
+const yearsArr = Array.from({length:9},(y,i)=>currentYear+i)
 
 function CForm({
   cardMonth,
@@ -70,14 +72,30 @@ function CForm({
                   </option>
                 ))}
               </select>
-              <select>
-                <option>Year</option>
+              <select
+                className='card-input__input -select'
+                value={cardYear}
+                ref={cardDateRef}
+                name='cardMonth'
+                onChange={handleFormChange}
+                onFocus={e => onCardInputFocus(e, "cardDate")}
+              >
+               <option value="" disabled>
+                                    Year
+                                </option>
+
+                                {yearsArr.map((val, index) => (
+                                    <option key={index} value={val}>
+                                        {val}
+                                    </option>
+                                ))}
               </select>
+             
             </div>
           </div>
           <div className='card-form__col -cvv'>
             <div className='card-input'>
-              <label>CVV</label>
+              <label className = "card-input__label" > CVV </label>
               <input
                 type='tel'
                 className='card-input__input'
