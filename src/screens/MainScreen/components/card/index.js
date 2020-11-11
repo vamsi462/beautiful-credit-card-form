@@ -26,7 +26,8 @@ const Card = ({
     isCardFlipped,
     currentFocusedElm,
     onCardElementClick,
-    cardHolderRef
+    cardHolderRef,
+    cardDateRef
   }) => {
     
  const [style, setStyle] = useState(null);
@@ -108,7 +109,7 @@ const Card = ({
                                 timeout={200}
                                  key={index}
                             >
-                            <span>{val}</span>
+                            <span className="card-item__nameItem">{val}</span>
                             </CSSTransition>
                           ))
                       )
@@ -117,11 +118,45 @@ const Card = ({
                    </div>
                   </label>
               </div>
-              <div className='card-item__date'>
-                <label>expires</label>
-                <label>month</label>
+              <div 
+                  className='card-item__date'
+                  onClick={()=>onCardElementClick('cardDate')}
+                  ref={cardDateRef}
+              >
+                <label className="card-item__dateTitle">
+                                Expires
+                </label>
+
+                <label className="card-item__dateItem">
+                  <SwitchTransition in-out>
+                      <CSSTransition timeout = {200}
+                                    key={cardMonth}
+                      >
+                       <span>
+                          {!cardMonth ? 'MM' : cardMonth}{' '}
+                        </span>
+                      </CSSTransition>
+                  </SwitchTransition>
+                </label>
                 /
-                <label>year</label>
+                <label
+                htmlFor = "cardYear"
+                className = "card-item__dateItem" >
+                  <SwitchTransition out-in>
+                                    <CSSTransition
+                                        classNames="slide-fade-up"
+                                        timeout={250}
+                                        key={cardYear}
+                                    >
+                                        <span>
+                                            {!cardYear
+                                                ? 'YY'
+                                                : cardYear}
+
+                                        </span>
+                                    </CSSTransition>
+                                </SwitchTransition>
+                </label>
                 
               </div>
             </div>
