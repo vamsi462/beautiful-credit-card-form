@@ -27,7 +27,8 @@ const Card = ({
     currentFocusedElm,
     onCardElementClick,
     cardHolderRef,
-    cardDateRef
+    cardDateRef,
+    cardNumberRef
   }) => {
     
  const [style, setStyle] = useState(null);
@@ -45,23 +46,24 @@ const Card = ({
     };
 
 
-  useEffect(()=>{
-    if(currentFocusedElm){
-        const style =  outlineElementStyle(currentFocusedElm.current)
-        setStyle(style)
-    }
-  },[currentFocusedElm])
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+      useEffect(()=>{
+        if(currentFocusedElm){
+            const style =  outlineElementStyle(currentFocusedElm.current)
+            setStyle(style)
+        }
+      },[currentFocusedElm])
+      
+      const maskCardNumber = (cardNumber)=>{
+        let cardNumberArr = cardNumber.split('');
+        cardNumberArr.forEach((val,index) => {
+          if(index>4 &&index <14){
+            if(cardNumberArr[index]!==''){
+                cardNumberArr[index] = '*';
+                }
+              }
+            });
+          return cardNumberArr;
+      }
   return (
       <div className={'card-item'+(isCardFlipped ? '-active':'')}>
 
@@ -82,7 +84,38 @@ const Card = ({
                 <img alt='type' src={type1} className='card-item__typeImg' />
               </div>
 
-              <label></label>
+              <label className = "card-item__number"
+                      ref={cardNumberRef}
+                      onClick={()=>onCardElementClick('cardNumber')}
+              >
+              <TransitionGroup
+                 className = "slide-fade-up"
+                 component = "div" 
+                >
+                  {cardNumber ?(
+                    maskCardNumber(cardNumber).map((val,index)=>(
+                      <CSSTransition 
+                            classNames="slide-fade-up"
+                            timeout={250}
+                            key={index}
+                        >
+                          <div className="card-item__numberItem">
+                                  {val}
+                              </div>
+                      </CSSTransition>
+                    ))
+                  ):(
+                     <CSSTransition
+                          classNames="slide-fade-up"
+                          timeout={250}
+                      >
+                      <div className="card-item__numberItem">
+                                        #
+                      </div>
+                    </CSSTransition>
+                  )}
+                </TransitionGroup>
+              </label>
               <div className='card-item__content'>
                 <label
                  className = "card-item__info"
