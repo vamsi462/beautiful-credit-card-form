@@ -53,7 +53,16 @@ const MainScreen = () => {
 
   return (
     <div className='wrapper'>
-      <Card
+   
+      <CForm
+        cardMonth={state.cardMonth}
+        cardYear={state.cardYear}
+        onUpdateState={updateStateValues}
+        cardNumberRef={formFieldsRefObj.cardNumber}
+        cardHolderRef={formFieldsRefObj.cardHolder}
+        cardDateRef={formFieldsRefObj.cardDate}
+        onCardInputFocus={onCardFormInputFocus}
+      >   <Card
         cardNumber={state.cardNumber}
         cardHolder={state.cardHolder}
         cardMonth={state.cardMonth}
@@ -65,16 +74,7 @@ const MainScreen = () => {
         cardDateRef={cardElementsRef.cardDate}
         currentFocusedElm={currentFocusedElm}
         onCardElementClick={focusFormFieldByKey}
-      />
-      <CForm
-        cardMonth={state.cardMonth}
-        cardYear={state.cardYear}
-        onUpdateState={updateStateValues}
-        cardNumberRef={formFieldsRefObj.cardNumber}
-        cardHolderRef={formFieldsRefObj.cardHolder}
-        cardDateRef={formFieldsRefObj.cardDate}
-        onCardInputFocus={onCardFormInputFocus}
-      ></CForm>
+      /></CForm>
     </div>
   );
 };

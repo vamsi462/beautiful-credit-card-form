@@ -119,7 +119,7 @@ const Card = ({
                   </label>
               </div>
                <div
-                      className="card-item__date"
+                            className="card-item__date"
                             onClick={() => onCardElementClick('cardDate')}
                             ref={cardDateRef}
                         >
