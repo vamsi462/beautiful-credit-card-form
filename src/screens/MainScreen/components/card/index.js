@@ -148,14 +148,9 @@ const Card = ({
                                         timeout={250}
                                         key={cardYear}
                                     >
-                                        <span>
-                                            {!cardYear
-                                                ? 'YY'
-                                                : cardYear}
-
-                                        </span>
+                                        <span>{!cardYear ? 'YY': cardYear}</span>
                                     </CSSTransition>
-                                </SwitchTransition>
+                  </SwitchTransition>
                 </label>
                 
               </div>
