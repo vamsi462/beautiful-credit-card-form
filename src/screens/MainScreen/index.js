@@ -30,7 +30,9 @@ const MainScreen = () => {
       cardCvv: useRef(),
     };
 
-  
+    let focusFormFieldByKey = (key)=>{
+      formFieldsRefObj[key].current.focus();
+    }
 
     return (
       <div>
