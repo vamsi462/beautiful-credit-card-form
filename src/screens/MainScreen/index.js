@@ -1,6 +1,6 @@
 /** @format */
 
-import React, {useState, useRef} from "react";
+import React, {useState, useRef, useCallback} from "react";
 import CForm from "./components/form";
 import Card from "./components/card";
 
@@ -17,13 +17,15 @@ const MainScreen = () => {
   const [state, setState] = useState(initialState);
   const [currentFocusedElm, setCurrentFocusedElm] = useState(null);
 
-  const updateStateValues = (keyName, value) => {
-    setState({
-      ...state,
-      [keyName]: value || initialState[keyName]
-    });
-  };
-
+    const updateStateValues = useCallback(
+      (keyName, value) => {
+        setState({
+          ...state,
+          [keyName]: value || initialState[keyName]
+        });
+      },
+      [state]
+    );
   //form input references used to focus on corresponding input fields
   let formFieldsRefObj = {
     cardNumber: useRef(),

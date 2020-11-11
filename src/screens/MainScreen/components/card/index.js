@@ -106,7 +106,7 @@ const Card = ({
                           .split('')
                           .map((val,index)=>(
                             <CSSTransition 
-                                timeout={200}
+                                timeout={250}
                                  key={index}
                             >
                             <span className="card-item__nameItem">{val}</span>
@@ -118,42 +118,49 @@ const Card = ({
                    </div>
                   </label>
               </div>
-              <div 
-                  className='card-item__date'
-                  onClick={()=>onCardElementClick('cardDate')}
-                  ref={cardDateRef}
-              >
-                <label className="card-item__dateTitle">
+               <div
+                      className="card-item__date"
+                            onClick={() => onCardElementClick('cardDate')}
+                            ref={cardDateRef}
+                        >
+                            <label className="card-item__dateTitle">
                                 Expires
-                </label>
-
-                <label className="card-item__dateItem">
-                  <SwitchTransition in-out>
-                      <CSSTransition timeout = {200}
-                                    key={cardMonth}
-                      >
-                       <span>
-                          {!cardMonth ? 'MM' : cardMonth}{' '}
-                        </span>
-                      </CSSTransition>
-                  </SwitchTransition>
-                </label>
-                /
-                <label
-                htmlFor = "cardYear"
-                className = "card-item__dateItem" >
-                  <SwitchTransition out-in>
+                            </label>
+                            <label className="card-item__dateItem">
+                                <SwitchTransition in-out>
+                                    <CSSTransition
+                                        classNames="slide-fade-up"
+                                        timeout={200}
+                                        key={cardMonth}
+                                    >
+                                        <span>
+                                            {!cardMonth ? 'MM' : cardMonth}{' '}
+                                        </span>
+                                    </CSSTransition>
+                                </SwitchTransition>
+                            </label>
+                            /
+                            <label
+                                htmlFor="cardYear"
+                                className="card-item__dateItem"
+                            >
+                                <SwitchTransition out-in>
                                     <CSSTransition
                                         classNames="slide-fade-up"
                                         timeout={250}
                                         key={cardYear}
                                     >
-                                        <span>{!cardYear ? 'YY': cardYear}</span>
+                                        <span>
+                                            {!cardYear
+                                                ? 'YY'
+                                                : cardYear
+                                                      .toString()
+                                                      .substr(-2)}
+                                        </span>
                                     </CSSTransition>
-                  </SwitchTransition>
-                </label>
-                
-              </div>
+                                </SwitchTransition>
+                            </label>
+                        </div>
             </div>
           </div>
         </div>
