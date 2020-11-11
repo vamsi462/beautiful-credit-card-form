@@ -6,7 +6,7 @@ import React, {useState} from "react";
 
 const monthsArr = Array.from({length:12},(x,i)=>{
     const month = i+1
-    return console.log(month<=9 ? '0'+month :month)
+    return month<=9 ? '0'+month :month
 })
 
 
@@ -56,6 +56,7 @@ function CForm({
             <div className='card-form__group'>
               <label className='card-input__label'>Expiration Date</label>
               <select
+                className='card-input__input -select'
                 value={cardMonth}
                 ref={cardDateRef}
                 name='cardMonth'
@@ -63,7 +64,11 @@ function CForm({
                 onFocus={e => onCardInputFocus(e, "cardDate")}
               >
                 <option value="" disabled>Month</option>
-              
+                {monthsArr.map((val, index) => (
+                  <option key={index} value={val}>
+                    {val}
+                  </option>
+                ))}
               </select>
               <select>
                 <option>Year</option>
