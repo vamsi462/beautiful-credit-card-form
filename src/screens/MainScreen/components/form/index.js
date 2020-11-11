@@ -2,14 +2,22 @@
 
 import React, { useState } from "react";
 
-function CForm() {
+function CForm({
+  cardMonth,
+  cardYear,
+  onUpdateState,
+  cardNumbeRef,
+  cardHolderRef,
+  cardDateRef,
+  onCardInputFocus,
+  children
+}) {
 
   const [cardNumber,setCardNumber]= useState('')
 
   const handleFormChange =(e)=>{
     const {name,value} = e.target
     
-        
   }
   return (
     <div className='card-form'>
@@ -26,21 +34,21 @@ function CForm() {
           />
         </div>
         <div className='card-input'>
-          <label className='card-input__label'> Card Holder</label>
+          <label className='card-input__label'>Card Holder</label>
           <input
             type='text'
             autoComplete='off'
-            maxLength='19'
             className='card-input__input'
-            value=''
+            ref={cardHolderRef}
             name='cardHolder'
             onChange={handleFormChange}
+            onFocus={(e) => onCardInputFocus(e, 'cardHolder')}
           />
         </div>
         <div className='card-form__row'>
           <div className='card-form__col'>
             <div className='card-form__group'>
-              <label>Expiration Date</label>
+              <label className="card-input__label">Expiration Date</label>
               <select>
                 <option>Month</option>
               </select>
