@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import {TransitionGroup, SwitchTransition, CSSTransition } from 'react-transition-group'
 import bgImg from '../../images/card.jpeg' 
 import chip from '../../images/chip.png'
@@ -6,8 +6,51 @@ import type1 from '../../images/mastercard.png'
 import type2 from '../../images/visa.png'
 import './styles.scss'
 
-const Card= () => {
-    return (
+
+const CARDS = {
+  visa: '^4',
+  amex: '^(34|37)',
+  mastercard: '^5[1-5]',
+  discover: '^6011',
+  unionpay: '^62',
+  troy: '^9792',
+  diners: '^(30[0-5]|36)'
+};
+
+const Card = ({
+    cardHolder,
+    cardNumber,
+    cardMonth,
+    cardYear,
+    cardCvv,
+    isCardFlipped,
+    currentFocusedElm,
+    onCardElementClick,
+    cardHolderRef
+  }) => {
+    
+ 
+  
+  
+  
+  
+  useEffect(()=>{
+    if(currentFocusedElm){
+      let s =  currentFocusedElm.current
+    }
+  },[currentFocusedElm])
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  return (
       <div className='card-item'>
         {/**************************** front **********************************/}
         <div className='card-item__side -front'>
@@ -26,7 +69,9 @@ const Card= () => {
 
               <label>number</label>
               <div className='card-item__content'>
-                <label>holder</label>
+                <label
+                 onClick={() => onCardElementClick('cardHolder')}
+                            ref={cardHolderRef}>holder</label>
               </div>
               <div className='card-item__date'>
                 <label>expires</label>
