@@ -28,6 +28,7 @@ function CForm({
   const handleFormChange = e => {
     const {name, value} = e.target;
     onUpdateState(name, value);
+    console.log(name,value)
   };
 
      
@@ -44,7 +45,6 @@ function CForm({
             className='card-input__input'
             name="cardNumber" 
             ref={cardNumberRef}
-            // value={cardNumber}
              onChange={handleFormChange}
             onFocus={(e) => onCardInputFocus(e, 'cardNumber')}
           />

@@ -20,7 +20,7 @@ const MainScreen = () => {
   const updateStateValues = (keyName, value) => {
     setState({
       ...state,
-      [keyName]: value || initialState[keyName],
+      [keyName]: value || initialState[keyName]
     });
   };
 

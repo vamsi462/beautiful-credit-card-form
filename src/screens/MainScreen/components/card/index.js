@@ -86,11 +86,34 @@ const Card = ({
                 <label
                  className = "card-item__info"
                  onClick={() => onCardElementClick('cardHolder')}
-                            ref={cardHolderRef}>
+                ref={cardHolderRef}
+                >
 
                    <div className="card-item__holder">Card Holder</div>
                    <div className="card-item__name">
-                 
+                    <TransitionGroup
+                        component="div"
+                    >
+                    {
+                      cardHolder === 'FULL NAME'? 
+                      (
+                        <CSSTransition timeout={200}>
+                          <div>FULL NAME</div>
+                        </CSSTransition>
+                      ):(
+                        cardHolder 
+                          .split('')
+                          .map((val,index)=>(
+                            <CSSTransition 
+                                timeout={200}
+                                 key={index}
+                            >
+                            <span>{val}</span>
+                            </CSSTransition>
+                          ))
+                      )
+                    }
+                    </TransitionGroup>
                    </div>
                   </label>
               </div>
