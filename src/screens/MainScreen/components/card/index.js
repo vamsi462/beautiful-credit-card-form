@@ -82,7 +82,7 @@ const Card = ({
                 <img alt='type' src={type1} className='card-item__typeImg' />
               </div>
 
-              <label>number</label>
+              <label></label>
               <div className='card-item__content'>
                 <label
                  className = "card-item__info"

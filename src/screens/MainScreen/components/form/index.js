@@ -28,26 +28,33 @@ function CForm({
   const handleFormChange = e => {
     const {name, value} = e.target;
     onUpdateState(name, value);
-    console.log(name,value)
   };
 
+  const onCardNumberChange = (event)=>{
+    const {name,value} = event.target
+      setCardNumber(value)
+      onUpdateState(name, cardNumber);
+  }
      
   return (
     <div className='card-form'>
      <div className="card-list">{children}</div>
       <div className='card-form__inner'>
         <div className='card-input'>
-          <label className='card-input__label'>Card Number</label>
-          <input
-            type='tel'
-            autoComplete='off'
-            maxLength='19'
-            className='card-input__input'
-            name="cardNumber" 
-            ref={cardNumberRef}
-             onChange={handleFormChange}
-            onFocus={(e) => onCardInputFocus(e, 'cardNumber')}
-          />
+          <label htmlFor="cardNumber" className="card-input__label">
+                        Card Number
+                    </label>
+                    <input
+                        type="tel"
+                        name="cardNumber"
+                        className="card-input__input"
+                        autoComplete="off"
+                        onChange={onCardNumberChange}
+                        maxLength="19"
+                        ref={cardNumberRef}
+                        onFocus={(e) => onCardInputFocus(e, 'cardNumber')}
+                        value={cardNumber}
+                    />
         </div>
         <div className='card-input'>
           <label className='card-input__label'>Card Holder</label>

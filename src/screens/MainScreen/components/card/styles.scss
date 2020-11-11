@@ -28,7 +28,6 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: rgb(8, 20, 47);
             height: 100%;
             border-radius: 5px;
             filter: blur(25px);
@@ -76,7 +75,7 @@
 
     &__cover {
         height: 100%;
-        background-color: #1c1d27;
+        // background-color: #1c1d27;
         position: absolute;
         height: 100%;
         left: 0;
@@ -186,31 +185,21 @@
           display: flex;
           align-items: flex-start;
       }
-        &__date {
-        flex-wrap: wrap;
-        font-size: 18px;
-        margin-left: auto;
-        padding: 10px;
-        display: inline-flex;
-        width: 80px;
-        white-space: nowrap;
-        flex-shrink: 0;
-        cursor: pointer;
-
-       
-    }
 
     &__date {
         flex-wrap: wrap;
         font-size: 18px;
         margin-left: auto;
         padding: 10px;
-        display: inline-flex;
+        display: flex;
+        align-items: flex-end;
         width: 80px;
         white-space: nowrap;
         flex-shrink: 0;
+        color: #fff;
         cursor: pointer;
-
+        position: relative;
+        bottom:60px;
         @media screen and (max-width: 480px) {
             font-size: 16px;
         }
@@ -218,7 +207,6 @@
 
     &__dateItem {
         position: relative;
-
         span {
             width: 22px;
             display: inline-block;
