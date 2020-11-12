@@ -20,19 +20,20 @@ function CForm({
   onCardInputFocus,
   cardCvv,
   children,
+  cardNumber
 }) {
-  const [cardNumber, setCardNumber] = useState("");
+  // const [cardNumber, setCardNumber] = useState("");
 
   const handleFormChange = e => {
     const { name, value } = e.target;
     onUpdateState(name, value);
   };
 
-  const onCardNumberChange = event => {
-    const { name, value } = event.target;
-    setCardNumber(value);
-    onUpdateState(name, cardNumber);
-  };
+  // const onCardNumberChange = event => {
+  //   const { name, value } = event.target;
+  //   setCardNumber(value);
+  //   onUpdateState(name, cardNumber);
+  // };
   const onCvvFocus = event => {
     onUpdateState("isCardFlipped", true);
   };
@@ -52,7 +53,7 @@ function CForm({
             name='cardNumber'
             className='card-input__input'
             autoComplete='off'
-            onChange={onCardNumberChange}
+            onChange={handleFormChange}
             maxLength='19'
             ref={cardNumberRef}
             onFocus={e => onCardInputFocus(e, "cardNumber")}
