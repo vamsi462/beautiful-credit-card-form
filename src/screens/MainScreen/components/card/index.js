@@ -188,7 +188,7 @@ const Card = ({
             </TransitionGroup>
           </div>
           <div className='card-item__type'>
-            <img alt='type2' src={type2} className='card-item__typeImg' />
+            <img alt='type2' src={type1} className='card-item__typeImg' />
           </div>
         </div>
       </div>
