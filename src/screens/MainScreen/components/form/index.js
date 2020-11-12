@@ -22,18 +22,11 @@ function CForm({
   children,
   cardNumber
 }) {
-  // const [cardNumber, setCardNumber] = useState("");
-
+  
   const handleFormChange = e => {
     const { name, value } = e.target;
     onUpdateState(name, value);
   };
-
-  // const onCardNumberChange = event => {
-  //   const { name, value } = event.target;
-  //   setCardNumber(value);
-  //   onUpdateState(name, cardNumber);
-  // };
   const onCvvFocus = event => {
     onUpdateState("isCardFlipped", true);
   };
