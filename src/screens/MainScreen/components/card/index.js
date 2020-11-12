@@ -9,7 +9,6 @@ import {
 import bgImg from "../../images/blackbg.jpg";
 import chip from "../../images/chip.png";
 import type1 from "../../images/mastercard.png";
-import type2 from "../../images/visa.png";
 import "./styles.scss";
 
 const CARDS = {
@@ -116,14 +115,17 @@ const Card = ({
               >
                 <div className='card-item__holder'>Card Holder</div>
                 <div className='card-item__name'>
-                  <TransitionGroup component='div'>
+                  <TransitionGroup component='div'  className="slide-fade-up">
                     {cardHolder === "FULL NAME" ? (
-                      <CSSTransition timeout={250}>
+                      <CSSTransition timeout = {250}
+                      classNames = "slide-fade-up" >
                         <div>FULL NAME</div>
                       </CSSTransition>
                     ) : (
                       cardHolder.split("").map((val, index) => (
-                        <CSSTransition timeout={250} key={index}>
+                        <CSSTransition  timeout = {250}
+                        key = {index}
+                        classNames = "slide-fade-up">
                           <span className='card-item__nameItem'>{val}</span>
                         </CSSTransition>
                       ))
