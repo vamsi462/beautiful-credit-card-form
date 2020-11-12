@@ -121,10 +121,24 @@
          justify-content: space-between;
          margin-bottom: 40px;
          padding: 0 10px;
+          @media screen and (max-width: 480px) {
+              margin-bottom: 25px;
+          }
+
+          @media screen and (max-width: 360px) {
+              margin-bottom: 15px;
+          }
     }
 
     &__chip {
         width: 60px;
+         @media screen and (max-width: 480px) {
+             width: 50px;
+         }
+
+         @media screen and (max-width: 360px) {
+             width: 40px;
+         }
     }
 
        &__type {
@@ -161,11 +175,18 @@
             font-weight: 500;
             display: block;
             cursor: pointer;
+             @media screen and (max-width: 480px) {
+                 padding: 10px;
+             }
         }
         &__holder {
             opacity: 0.7;
             font-size: 13px;
-            margin-bottom: 3px;
+            margin-bottom: 6px;
+            @media screen and (max-width: 480px) {
+                font-size: 12px;
+                margin-bottom: 5px;
+            }
         }
     &__wrapper {
         font-family: 'Source Code Pro', monospace;
@@ -175,6 +196,9 @@
         height: 100%;
         text-shadow: 7px 6px 10px rgba(14, 42, 90, 0.8);
         user-select: none;
+        @media screen and (max-width: 480px) {
+            padding: 20px 10px;
+        }
     }
 
     &__name {
@@ -205,6 +229,17 @@
          display: inline-block;
          padding: 10px 15px;
          cursor: pointer;
+          @media screen and (max-width: 480px) {
+              font-size: 21px;
+              margin-bottom: 15px;
+              padding: 10px 10px;
+          }
+
+          @media screen and (max-width: 360px) {
+              font-size: 19px;
+              margin-bottom: 10px;
+              padding: 10px 10px;
+          }
     }
      &__numberItem {
          width: 16px;
@@ -212,6 +247,18 @@
         
         &.-active {
             width: 30px;
+        }
+         @media screen and (max-width: 480px) {
+            width: 13px;
+            &.-active {
+                width: 16px;
+            }
+        }
+        @media screen and (max-width: 360px) {
+            width: 12px;
+            &.-active {
+                width: 8px;
+            }
         }
      }
       &__content {
@@ -262,6 +309,13 @@
          margin-top: 30px;
          position: relative;
          z-index: 2;
+        @media screen and (max-width: 480px) {
+            margin-top: 20px;
+        }
+        @media screen and (max-width: 360px) {
+            height: 40px;
+            margin-top: 10px;
+        }
     }
     &__cvv {
     text-align: right;
@@ -272,6 +326,11 @@
     .card-item__type {
         opacity: 0.7;
          }
+
+     @media screen and (max-width: 360px) {
+         padding: 10px 15px;
+     }
+
     }
       &__cvvTitle {
           padding-right: 10px;
@@ -293,6 +352,16 @@
          font-size: 18px;
          border-radius: 4px;
          box-shadow: 0px 10px 20px -7px rgba(32, 56, 117, 0.35);
+
+        @media screen and (max-width: 480px) {
+            height: 40px;
+            margin-bottom: 20px;
+        }
+
+        @media screen and (max-width: 360px) {
+            margin-bottom: 15px;
+        }
+
 
         span {
             display: inline-block;
