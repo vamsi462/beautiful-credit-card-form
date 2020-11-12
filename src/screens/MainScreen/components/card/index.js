@@ -67,7 +67,6 @@ const Card = ({
   };
   return (
     <div className={'card-item ' + (isCardFlipped ? '-active' : '')}>
-      {/**************************** front **********************************/}
       <div className="card-item__side -front">
         <div
           className={`card-item__focus ${
@@ -76,17 +75,16 @@ const Card = ({
           style={style}
         />
         <div className='card-item__cover'>
-          <img alt='bg' src={bgImg} className='card-item__bg' />
+          <img alt='bgimage' src={bgImg} className='card-item__bg' />
         </div>
-        <div>
           <div className='card-item__wrapper'>
             <div className='card-item__top'>
               <img alt='chip' src={chip} className='card-item__chip' />
-            </div>
+           
             <div className='card-item__type'>
               <img alt='type' src={type1} className='card-item__typeImg' />
             </div>
-
+             </div>
             <label
               className='card-item__number'
               ref={cardNumberRef}
@@ -120,7 +118,7 @@ const Card = ({
                 <div className='card-item__name'>
                   <TransitionGroup component='div'>
                     {cardHolder === "FULL NAME" ? (
-                      <CSSTransition timeout={200}>
+                      <CSSTransition timeout={250}>
                         <div>FULL NAME</div>
                       </CSSTransition>
                     ) : (
@@ -133,7 +131,7 @@ const Card = ({
                   </TransitionGroup>
                 </div>
               </label>
-            </div>
+
             <div
               className='card-item__date'
               onClick={() => onCardElementClick("cardDate")}
@@ -166,13 +164,12 @@ const Card = ({
                 </SwitchTransition>
               </label>
             </div>
-          </div>
+          </div>            
         </div>
       </div>
-      {/********************* back side ***************************/}
       <div className='card-item__side -back'>
         <div className='card-item__cover'>
-          <img alt='bg' src={bgImg} className='card-item__bg' />
+          <img alt='bgimg' src={bgImg} className='card-item__bg' />
         </div>
         <div className='card-item__band' />
         <div className='card-item__cvv'>
