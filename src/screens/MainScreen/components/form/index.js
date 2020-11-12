@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState } from "react";
+import React from "react";
 
 const monthsArr = Array.from({ length: 12 }, (x, i) => {
   const month = i + 1;
