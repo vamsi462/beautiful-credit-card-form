@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import {
   TransitionGroup,
   SwitchTransition,
@@ -8,17 +8,13 @@ import {
 } from "react-transition-group";
 import bgImg from "../../images/blackbg.jpg";
 import chip from "../../images/chip.png";
-import type1 from "../../images/mastercard.png";
 import "./styles.scss";
 
 const CARDS = {
   visa: "^4",
-  amex: "^(34|37)",
+  americanexpress: "^(34|37)",
   mastercard: "^5[1-5]",
-  discover: "^6011",
-  unionpay: "^62",
-  troy: "^9792",
-  diners: "^(30[0-5]|36)",
+  discover: "^6011"
 };
 
 const Card = ({
@@ -35,6 +31,21 @@ const Card = ({
   cardNumberRef,
 }) => {
   const [style, setStyle] = useState(null);
+
+  const cardType = (cardNumber)=>{
+     const number = cardNumber;
+     let  pt;
+     for(const[card,pattern]of Object.entries(CARDS)){
+        pt= new RegExp(pattern)
+        if(number.match(pt)!= null){
+          return card
+        }
+     }
+      return 'visa';
+  }
+        const useCardType = useMemo(()=>{
+            return cardType(cardNumber);
+        },[cardNumber])
 
   const outlineElementStyle = element => {
     return element
@@ -81,7 +92,7 @@ const Card = ({
               <img alt='chip' src={chip} className='card-item__chip' />
            
             <div className='card-item__type'>
-              <img alt='type' src={type1} className='card-item__typeImg' />
+              <img alt='type' src={`/cards/${useCardType}.png`} className='card-item__typeImg' />
             </div>
              </div>
             <label
@@ -190,7 +201,7 @@ const Card = ({
             </TransitionGroup>
           </div>
           <div className='card-item__type'>
-            <img alt='type2' src={type1} className='card-item__typeImg' />
+            <img alt='type2' src={`/cards/${useCardType}.png`} className='card-item__typeImg' />
           </div>
         </div>
       </div>
